@@ -141,31 +141,28 @@ function customHours() {
   document.querySelectorAll(".book-btn").forEach(btn => {
     btn.addEventListener("click", function () {
 
-      // 1. Close the details overlay
       const overlay = this.closest(".details-overlay");
       if (overlay) overlay.classList.remove("active");
 
       setTimeout(() => {
 
-        // 2. Hide ALL pages
+
         document.querySelectorAll(".page").forEach(page => {
           page.classList.remove("active");
         });
 
-        // 3. Find the page that CONTAINS the Book section
+    
         const bookSection = document.getElementById("BookNow");
         const bookPage = bookSection.closest(".page");
 
-        // 4. Activate that page
         bookPage.classList.add("active");
 
-        // 5. Scroll to Book section
         bookSection.scrollIntoView({
           behavior: "smooth",
           block: "start"
         });
 
-      }, 400); // matches your modal animation
+      }, 400); 
     });
   });
 
