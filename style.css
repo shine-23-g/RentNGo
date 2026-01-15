@@ -824,7 +824,7 @@ header .navbar {
     padding: 10px;
   }
 }
-/* Phones: max-width 600px */
+/* Phones */
 @media (max-width: 600px) {
   .navbar .logo img {
     height: 50px;

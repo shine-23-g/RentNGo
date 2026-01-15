@@ -54,8 +54,7 @@ document.getElementById("bookNowBtn").addEventListener("click", e => {
   document.getElementById("BookNow").scrollIntoView({ behavior: "smooth" });
 });
 
-//scroll herp//
-// Select all elements with reveal classes
+// Select all elements with reveal classes//
 const revealElements = document.querySelectorAll('.reveal-left, .reveal-up, .reveal-scale');
 
 function revealOnScroll() {
@@ -126,6 +125,7 @@ function customHours() {
     customInput.value = ""; 
   }
 }
+
 //book successful//
   const form = document.getElementById("bookingForm");
   const popup = document.getElementById("successPopup");
@@ -135,7 +135,6 @@ function customHours() {
     popup.style.display = "flex";
     form.reset();
   });
-
 
 
   document.querySelectorAll(".book-btn").forEach(btn => {
