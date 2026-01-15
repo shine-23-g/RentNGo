@@ -1,0 +1,931 @@
+html {
+  font-size: clamp(14px, 1vw + 10px, 16px);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif, Helvetica, sans-serif;
+}
+body{
+    margin:0;
+    margin-right: 0;
+    overflow-x: hidden;
+    background: linear-gradient(135deg,#3b141c,black);
+}
+/*for showing one page only*/
+.page {
+    display: none;
+}
+.page.active {
+    display: block;
+}
+ul li{
+  list-style: none;
+}
+a {
+    text-decoration: none;
+}
+#menu-open-button, #menu-close-button {
+  display: none; 
+}
+/*nav bar styling*/
+header {
+    position:fixed;
+    width:100%;
+    z-index: 5;
+    background-color:rgba(0,0,0,0.8);
+}
+header .navbar {
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+.navbar .menu {
+    display:flex;
+    gap:10px;
+}
+.navbar .logo img{
+    height: 70px;
+}
+.navbar .menu .navlink {
+    padding: 10px 18px;
+    color:white;
+    font-size: 20px;
+    transition: 0.3s;
+}
+.navbar .menu .navlink:hover {
+    background: white;
+    color: black;
+    border-radius: 20px;
+}
+#menu-close-btn, #menu-open-btn {
+    display:none; 
+}
+/*hero style */
+.hero-section {
+    padding-top: 70px;
+}
+.hero-section .content {
+    position: relative;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 8vw, 6rem);
+    padding: clamp(1.6rem, 7vw, 6rem);
+    color: white;
+    z-index: 1;
+}
+.hero-section .content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/highway.jpg") center/cover no-repeat;
+  opacity: 0.2;
+  z-index: -1;
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.home h4, .home p{
+    font-size:1rem;
+}
+.home h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.home i {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color:red;
+}
+.herobtn {
+    margin-top:8px;
+    display:flex;
+    gap: 25px;
+}
+.herobtn .book_now {
+    padding: 15px 26px;
+    color:black;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    background: white;
+    transition: 0.3s;
+}
+.herobtn .car {
+    padding: 15px 40px;
+    color:white;
+    border: 2px solid white;
+    border-radius: 30px;
+    background: transparent;
+    transition: 0.3s;
+}
+.herobtn .book_now:hover{
+    color:white;
+    border-color: white;
+    background:transparent;
+}
+.herobtn .car:hover {
+    color:black;
+    border-color: black;
+    background: white;
+}
+.hero-img{
+    max-width: 650px;
+    padding-top: 150px;
+    align-self: flex-end;
+    filter: brightness(0.8) contrast(0.9);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 1s ease-out, opacity 1s ease-out; /
+}
+.hero-img.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+@keyframes slideIn {
+  from{ transform: translateX(100%);opacity: 0;}
+  to{transform: translateX(0); opacity: 1}
+}
+/*About us*/
+.about {
+  width: 100%;
+  background: white;
+}
+.about-img {
+  width: 100vw;             
+  margin-left: calc(50% - 50vw); 
+  overflow: hidden;
+}
+.about-img img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+.about-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: flex;           
+  align-items: flex-start;
+  gap: 3rem;
+}
+.about-logo img {
+  width: 500px;
+  max-width: 100%;
+  display: block;
+  animation: pulsing 2s infinite;
+}
+@keyframes pulsing {
+  0%, 100% {transform: scale(1)}
+  50% {transform: scale(1.25)}
+}
+.about-content {
+  flex: 1;
+}
+.about-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+.about-content p {
+  line-height: 1.7;
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-120px);
+  transition: transform 0.9s ease-out, opacity 0.9s ease-out;
+}
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+.show {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+.delay {
+  transition-delay: 0.2s;
+}
+
+/*cars section*/
+.cars-section {
+  background-color: #C1C3C8;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  padding: 100px 0;  
+}
+.cars-section h1 {
+    font-weight: 1000;
+    text-align: center;
+    color: black;
+    margin-bottom: 50px;
+}
+.card-container {
+  max-width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.car-card {
+  border: 2px solid maroon;
+  border-radius: 20px;
+  padding: 40px 40px 60px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.car-info {
+    margin-left: 50px;
+}
+.car-info h2 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 1000;
+  color: black;
+}
+.car-info p {
+  margin: 5px 0 15px;
+  font-size: 25px;
+  font-weight: 800;
+  color: #1f2a2e;
+}
+.price {
+  background: #9b1c1c;
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 8px;
+  font-size: 20px;
+  display: inline-block;
+}
+.car-img {
+  position: absolute;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+}
+.car-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.car-card:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+/*car dits*/
+.details-overlay {
+  z-index: 9999;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+.details-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.car-details {
+  background: #fff;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 20px;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  text-align: center;
+}
+.details-overlay.active .car-details {
+  transform: translateY(0);
+}
+.car-details h2{
+  margin-top: 10px;
+  font-weight: 800;
+}
+.car-details ul {
+  list-style: none;
+  padding: 0;
+}
+.car-details li {
+  margin: 10px 0;
+}
+.close {
+  font-size: 20px;
+  cursor: pointer;
+  float: right;
+  margin-right: 10px;
+}
+.book-btn {
+  width: 100px;
+  padding: 12px;
+  background: #8b1c1c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+.book-btn:hover {
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+}
+/*service*/
+.services-section {
+  position: relative;
+  min-height: 100vh;
+  align-items: center;
+  padding: 160px 60px;
+  background: linear-gradient(135deg,#3b141c,black); 
+} 
+.services-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/highway.jpg") center/cover no-repeat;
+  opacity: 0.2; 
+  z-index: 0;
+}
+.services-section > * {
+  position: relative;
+  z-index: 1;
+}
+.services-section h1 {
+    font-weight: 1000;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+}
+.container {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    justify-content: center;
+    gap: 80px;
+    padding: 30px;
+}
+.card {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background-color: maroon;
+    margin: 30px 10px;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+}
+.card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.container .card .imgS {
+    position: relative;
+    width: 260px;
+    height:260px;
+    top: -60px;
+    display: flex;
+    justify-content: center;
+}
+.imgS img {
+    width: 100%;
+    height: 100%;     
+    object-fit: cover; 
+    display: block;
+    transition: all 0.3s ease;
+}
+.card:hover .imgS {
+    height: 200px;  
+    transition: height 0.3s ease;
+}
+.info {
+    position: relative;
+    margin-top:-140px;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.info h2 {
+   font-weight: 700;
+   margin-bottom: 10px;
+}
+.card:hover .info{
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: 0.3s;
+}
+
+/* BOOK SECTION */
+.book-section {
+  overflow: hidden;
+  padding: 80px 20px ;
+  background-color: #C1C3C8;
+}
+.book-section h1 {
+  font-weight: 1000;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.booking-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.booking-info {
+  flex: 1 1 35%; 
+  background-color: #8b1c1c;
+  color: white;
+  padding: 30px;
+}
+.booking-info i {
+  color: white; 
+  margin-right: 4px; 
+}
+.booking-info h3 {
+  margin: 30px 0;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+.booking-info ul {
+  list-style: none;
+  padding: 0;
+}
+.booking-info li {
+  margin: 15px 0;
+  font-size: 16px;
+}
+.booking-form {
+  flex: 1 1 65%; 
+  background-color: white;
+  padding: 30px;
+}
+.booking-form h3 {
+  margin: 30px 0;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  color: #8b1c1c;
+}
+.booking-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.booking-form input, .booking-form select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.booking-form input:focus,
+.booking-form select:focus, .datetime input:focus{
+  outline: none;
+  border-color: #8b1c1c;
+}
+.datetime {
+  display: flex;
+  flex-wrap: wrap;       /* allows items to go to the next line if needed */
+  gap: 5px;
+  align-items: center;
+}
+.datetime label {
+  font-weight: 400;
+  margin-right: 5px;
+  flex: 0 0 auto;        /* label takes only the space it needs */
+  white-space: nowrap;    /* label text won't break */
+}
+.datetime input {
+  flex: 1 1 100px;       
+  min-width: 80px;     
+}
+.booking-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #8b1c1c;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: all 0.3s ease;
+}
+.booking-form button:hover {
+  background: white;
+  color: #8b1c1c;
+  border: 2px solid #8b1c1c;
+}
+/*contact*/
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  padding: 160px 60px;
+  background: linear-gradient(135deg,#3b141c,black); 
+}
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/highway.jpg") center/cover no-repeat;
+  opacity: 0.2; /* transparency level */
+  z-index: 0;
+}
+.contact-section h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+  font-weight: 1000;
+}
+.contact-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  gap: 40px;
+  background: whitesmoke;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.contact-info, .contact-form  {
+  flex: 1;
+}
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+.contact-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.contact-info i {
+  color: black; 
+  margin-right: 4px; 
+  font-size: 25px;
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.contact-form textarea {
+  resize: none;
+  height: 120px;
+}
+.contact-form button {
+  padding: 12px;
+  background-color:black;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.contact-form button:hover {
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  .navbar .menu {
+    display: none; 
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(0,0,0,0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: transform 0.3s ease;
+    transform: translateX(100%); 
+    z-index: 10;
+  }
+  .navbar .menu.active {
+    display: flex;
+    transform: translateX(0);
+  }
+  #menu-open-button,
+  #menu-close-button {
+    display: block;
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  #menu-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .navbar .menu .navlink {
+    font-size: 22px;
+    padding: 12px 20px;
+  }
+  .hero-section .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+  .hero-img {
+    max-width: 80%;
+    align-self: center;
+  }
+  .home h1 {
+    font-size: 2rem;
+  }
+  .home i {
+    font-size: 2.5rem;
+  }
+  .herobtn {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .about-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .about-logo {
+    text-align: center;
+  }
+  .about-content {
+    text-align: center;
+    max-width: 90%;
+  }
+  .about-content h1 {
+    font-size: 1.8rem;
+  }
+  .about-content p {
+    font-size: 0.95rem;
+  }
+  .card-container {
+    max-width: 90%;
+    gap: 40px;
+  }
+  .car-card {
+    flex-direction: column;
+    padding: 30px;
+    text-align: center;
+  }
+  .car-info {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  .car-info h2 {
+    font-size: 32px;
+  }
+  .car-info p {
+    font-size: 20px;
+  }
+  .price {
+    padding: 15px 30px;
+    font-size: 18px;
+  }
+  .car-img {
+    position: relative;
+    right: 0;
+    width: 100%;
+    height: 300px;
+  }
+  .car-details {
+    width: 70%;
+  }
+  .services-section {
+    padding: 120px 40px;
+  }
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 20px;
+  }
+  .container .card {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+  .container .card .imgS {
+    width: 100%;
+    height: 220px;
+    top: -40px;
+  }
+  .imgS img {
+    height: 100%;
+  }
+  .info {
+    margin-top: -100px;
+  }
+  .booking-container {
+    flex-direction: column; 
+  }
+  .booking-info,
+  .booking-form {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .booking-info {
+    text-align: center;
+  }
+  .booking-info h3, .booking-form h3 {
+    font-size: 26px;
+  }
+  .booking-info li, .datetime label, .contact-info li p {
+    font-size: 14px;
+  }
+  .booking-form {
+    padding: 20px;
+  }
+ .datetime {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  }
+  .datetime input {
+  width: 80%;
+  padding: 2px 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  }
+  .contact-container {
+    flex-direction: column; 
+    gap: 30px;
+    padding: 30px;
+  }
+  .contact-form input,
+  .contact-form textarea, .contact-form button  {
+    padding: 10px;
+  }
+}
+/* Phones: max-width 600px */
+@media (max-width: 600px) {
+  .navbar .logo img {
+    height: 50px;
+  }
+  .navbar .menu .navlink {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+  #menu-open-button,
+  #menu-close-button {
+    font-size: 24px;
+  }
+  .home h1, .about-content h1 {
+  font-size: 1.6rem;
+  }
+  .home i {
+    font-size: 2rem;
+  }
+  .home p, .about-content p {
+    font-size: 0.9rem;
+  }
+  .herobtn a {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  .about-img img {
+    height: 200px;
+  }
+  .card-container {
+    max-width: 95%;
+    gap: 30px;
+  }
+  .car-card {
+    padding: 20px;
+  }
+  .car-info h2 {
+    font-size: 28px;
+  }
+  .car-info p {
+    font-size: 18px;
+  }
+  .price {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+  .car-img {
+    position: relative;
+    width: 100%;
+    height: 250px;
+  }
+  .car-details {
+    width: 90%;
+  }
+  .book-btn {
+    width: 80px;
+    padding: 10px;
+  }
+  .services-section {
+    padding: 100px 20px;
+  }
+  .container {
+    grid-template-columns: 1fr; 
+    gap: 30px;
+    padding: 10px;
+  }
+  .container .card {
+    width: 100%;
+    padding: 15px;
+  }
+  .container .card .imgS {
+    width: 100%;
+    height: 180px;
+    top: -30px;
+  }
+  .imgS img {
+    height: 100%;
+  }
+  .info {
+    margin-top: -80px;
+  }
+  .booking-section {
+    padding: 60px 10px;
+  }
+  .booking-info h3,
+  .booking-form h3, .info h2 {
+    font-size: 22px;
+  }
+  .booking-info li, .booking-form input, 
+  .booking-form select,.booking-form button {
+    font-size: 14px;
+  }
+  .datetime input {
+    min-width: 100%;
+  }
+  .contact-section {
+    padding: 100px 20px;
+  }
+  .contact-container {
+    padding: 20px;
+    gap: 20px;
+  }
+  .contact-info li {
+    flex-direction: column; 
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .contact-info .icon {
+    font-size: 18px;
+    margin-right: 0;
+  }
+  .contact-form input,  .contact-info li p 
+  .contact-form textarea,  .contact-form button{
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+
+
+
+
+
+

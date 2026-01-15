@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+
+    <!--navbar-->
+    <header>
+  <nav class="navbar section-content">   
+    <a href="#" class="logo">
+    <img src="images/logo.jpg" alt="Logo">
+    </a>
+        <ul class= "menu">
+            <button id="menu-close-button" class="fas fa-times"></button>
+            <li><a href="#Hero" class="navlink">Home</a></li>
+            <li><a href="#Cars" class="navlink">Cars</a></li>
+            <li><a href="#Services" class="navlink">Services</a></li>
+            <li><a href="#BookNow" class="navlink">Book Now</a></li>
+            <li><a href="#Contact" class="navlink">Contact</a></li>
+        </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+  </nav>
+</header>
+
+<main>
+    <!--Hero Section-->
+<section id="Hero" class="hero-section page active">
+    <div class="content">
+        <div class="home">
+            <h4>Do you need a Ride?</h4>
+            <h1> Rent 'N Go's got <br>the <i>Wheels</i> and the <i>Deals</i></h1>
+            <p>Step in and start your journey with us today!</p>
+            <div class="herobtn">
+                <a href="#" class="btn car" id="carBtn">Cars</a>
+                <a href="#" class="btn book_now" id="bookNowBtn">Book Now</a>
+            </div>
+        </div>
+          <div class="hero-img">
+            <img src="images/hero-car2.png" alt="Car">
+          </div>
+    </div>
+
+<!-- ABOUT -->
+<div class="about">
+  <div class="about-img reveal-left">
+    <img src="images/cars.jpg" alt="Cars">
+  </div>
+
+  <div class="about-main">
+    <div class="about-logo reveal-scale">
+      <img src="images/logo.jpg" alt="Logo">
+    </div>
+
+    <div class="about-content">
+      <h1 class="reveal-up">ABOUT US</h1>
+      <p class="reveal-up delay">
+        Founded in 2025, we are a car rental company dedicated to providing reliable vehicles and exceptional service. Our goal is to ensure every customer enjoys a smooth, comfortable, and hassle-free travel experience, whether for business or leisure.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+</section >
+
+<!--CAR-->
+<section  id="Cars" class="cars-section page">
+    <h1>OUR RENTAL FLEET</h1>
+
+<div class="card-container">
+
+  <div class="car-card" onclick="openDetails(this)">
+  <div class="car-info">
+      <h2>XPANDER</h2>
+      <p>7 Seaters</p>
+      <span class="price">Starting from<br> <strong>PHP 1500</strong></span>
+  </div>
+      <div class="car-img">
+        <img src="images/xpanderB.jpg" alt="Xpander">
+      </div>
+  </div>
+  
+  <div class="details-overlay">
+  <div class="car-details">
+    <span class="close" onclick="closeDetails(this)">✖</span>
+
+    <h2>XPANDER DETAILS</h2>
+
+    <ul>
+      <li><strong>Brand:</strong> Mitsubishi</li>
+      <li><strong>Model:</strong> Xpander</li>
+      <li><strong>Year:</strong> 2023</li>
+      <li><strong>Fuel:</strong> Unleaded</li>
+      <li><strong>Transmission:</strong> Automatic</li>
+      <li><strong>Seats:</strong> 7</li>
+    </ul>
+
+    <button class="book-btn">Book Now</button>
+  </div>
+  </div>
+
+<!--2nd car-->
+    <div class="car-card" onclick="openDetails(this)">
+    <div class="car-info">
+        <h2>MG 5 (White)</h2>
+        <p>5 Seaters</p>
+        <span class="price">Starting from<br> <strong>PHP 1100</strong></span>
+    </div>
+      <div class="car-img">
+        <img src="images/Mg5wB.png" alt="MG 5 Core">
+      </div>
+    </div>
+  <div class="details-overlay">
+  <div class="car-details">
+    <span class="close" onclick="closeDetails(this)">✖</span>
+
+    <h2>MG5 (WHITE) DETAILS</h2>
+
+    <ul>
+       <li><strong>Brand: </strong>MG</li>
+       <li><strong>Model: </strong>MG5(WHITE)</li>
+       <li><strong>Year: </strong>2026</li>
+       <li><strong>Fuel: </strong>Premium</li>
+       <li><strong>Transmission: </strong>Automatic</li>
+       <li><strong>Seats: </strong>5</li>
+    </ul>
+
+    <button class="book-btn">Book Now</button>
+  </div>
+  </div>
+
+<!--3rd car-->
+  <div class="car-card" onclick="openDetails(this)">
+    <div class="car-info">
+        <h2>MG 5 (Red)</h2>
+        <p>5 Seaters</p>
+        <span class="price">Starting from<br> <strong>PHP 1100</strong></span>
+    </div>
+      <div class="car-img">
+        <img src="images/Mg5rB.png" alt="MG 5 Core">
+      </div>
+  </div>
+
+  <div class="details-overlay">
+  <div class="car-details">
+    <span class="close" onclick="closeDetails(this)">✖</span>
+
+    <h2>MG5 (RED) DETAILS</h2>
+
+    <ul>
+       <li><strong>Brand: </strong>MG</li>
+       <li><strong>Model: </strong>MG5(RED)</li>
+       <li><strong>Year: </strong>2026</li>
+       <li><strong>Fuel: </strong>Premium</li>
+       <li><strong>Transmission: </strong>Automatic</li>
+       <li><strong>Seats: </strong>5</li>
+    </ul>
+
+    <button class="book-btn">Book Now</button>
+  </div>
+  </div>
+
+
+
+<!--4TH CAR-->  
+  <div class="car-card" onclick="openDetails(this)">
+    <div class="car-info">
+      <h2>MIRAGE</h2>
+      <p>4 Seaters</p>
+        <span class="price">Starting from<br> <strong>PHP 999</strong></span>
+      </div>
+      <div class="car-img">
+        <img src="images/mirageB.png" alt="Mirage Car">
+      </div>
+    </div>
+
+  <div class="details-overlay">
+  <div class="car-details">
+    <span class="close" onclick="closeDetails(this)">✖</span>
+
+    <h2>MIRAGE DETAILS</h2>
+    <ul>
+    <li><strong>Brand: </strong>Mitsubishi</li>
+    <li><strong>Model: </strong>Mirage</li>
+    <li><strong>Year: </strong>2024</li>
+    <li><strong>Fuel: </strong>Unleaded</li>
+    <li><strong>Transmission: </strong>Automatic</li>
+    <li><strong>Seats: </strong>4</li>
+    </ul>
+
+    <button class="book-btn">Book Now</button>
+  </div>
+  </div>
+</div>
+</section>
+
+ <!--SERVICES-->
+<section id="Services" class="services-section page">
+  <h1>OUR SERVICES</h1>
+
+<div class="container">
+    <div class="card">
+        <div class="imgS">
+            <img src="images/Car.key.jpg">
+        </div>
+        <div class="info">
+            <h2>Self-Drive</h2>
+            <p>Enjoy full freedom and flexibility on your journey.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="imgS">
+            <img src="images/Drivers.jpg">
+        </div>
+        <div class="info">
+            <h2>With Driver</h2>
+            <p>Relax and travel with our professional drivers.</p>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="imgS">
+            <img src="images/Airport.jpg">
+        </div>
+        <div class="info">
+            <h2>Airport Transfer</h2>
+            <p>On-time pickup and drop-off services.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="imgS">
+            <img src="images/OFT.jpg">
+        </div>
+        <div class="info">
+            <h2>Out of Town</h2>
+            <p>Perfect for long drives and weekend escapes.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="imgS">
+            <img src="images/City.jpg">
+        </div>
+        <div class="info">
+            <h2>City Use</h2>
+            <p>Convenient rides for everyday city travel.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="imgS">
+            <img src="images/Car.key.jpg">
+        </div>
+        <div class="info">
+            <h2>Special Events</h2>
+            <p>Weddings, parties, and corporate events.</p>
+        </div>
+    </div>
+</div>
+</section>
+
+<!--book-->
+<section id="BookNow" class="book-section page">
+
+  <h1>BOOK YOUR RIDE NOW</h1>
+
+      <div class="booking-container">
+
+        <!-- LEFT SIDE : INFO -->
+        <div class="booking-info">
+          <h3>📌Booking Reminder</h3>
+          <ul>
+            <li><i class="fas fa-car"></i> Choose the correct car unit</li>
+            <li><i class="fas fa-clock"></i> Follow your selected time</li>
+            <li><i class="fas fa-users"></i> Enter correct number of passengers</li>
+            <li><i class="fas fa-address-card"></i> Double-check destination</li>
+          </ul>
+        </div>
+
+        <!-- RIGHT SIDE : FORM -->
+        <div class="booking-form">
+          <h3>Booking Details</h3>
+
+          <form id="bookingForm">
+
+            <input type="text" id="fullname" placeholder="Full Name" required>
+            <input type="text" id="carunit" placeholder="Car Unit" required>
+
+            <div class="datetime">
+              <label for="date">Date</label>
+              <input type="date" required>
+               <label for="payment">Mode of Payment:</label><br>
+ 
+          <select id="payment" name="payment">
+               <option value="">-- Select Payment Method --</option>
+               <option value="cash">Cash</option>
+               <option value="gcash">GCash</option>
+               <option value="bank_transfer">Bank Transfer</option>
+          <select>
+              <label for="PUtime">Pick-Up Time</label>
+              <input type="time" required>
+              <label for="Dotime">Drop-Off Time</label>
+              <input type="time" required>
+            </div>
+
+            <select id="duration" onchange="customHours()" required>
+              <option value="">Select Duration</option>
+              <option value="12">12 Hours</option>
+              <option value="24">24 Hours</option>
+              <option value="custom">Others</option>
+            </select>
+
+            <input
+              type="text"
+              id="customInput"
+              placeholder="Enter number of hours or days"
+              min="1"
+              style="display:none;"
+            >
+
+            <input type="number" placeholder="Number of Pax" required>
+            <input type="text" placeholder="Contact Number" required>
+            <input type="text" placeholder="Destination" required>
+            <input type="text" id="carunit" placeholder="Car Unit" required>
+          
+
+            <button type="submit">Confirm Booking</button>
+
+          </form>
+        </div>
+      </div>
+</section>
+
+<!--contact-->
+<section id="Contact" class="contact-section  page">
+  <h1>CONTACT US</h1>
+
+  <div class="contact-container">
+
+    <!-- LEFT SIDE : CONTACT INFO -->
+    <div class="contact-info">
+      <ul> 
+          <li><i class="fas fa-address-card"></i>8-Ilang Ilang St. Aranzazu Subd. Malanday San Mateo, Rizal</li>
+          <li><i class="fas fa-phone"></i>+63 947 758 4170</li>
+          <li><i class="fas fa-envelope"></i>jhaymeearcadio@gmail.com</li>
+          <li><i class="fas fa-clock"></i>Open: 10:00 AM – 10:00 PM</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SIDE : CONTACT FORM -->
+    <div class="contact-form">
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="number" placeholder="Contact Number" required>
+        <textarea name="message" placeholder="Your Concern" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
